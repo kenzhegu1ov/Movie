@@ -24,6 +24,11 @@ class Movie(models.Model):
     description = models.TextField()
     rate = models.FloatField(default=0)
 
+    @property
+    def filtered_reviews(self):
+        return self.reviews.filter(stars__gt=3)
+
+    @property
     def director_name(self):
         return self.director.name
 
