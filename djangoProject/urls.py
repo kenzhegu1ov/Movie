@@ -24,8 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('hello/', hello_api_view),
-    path('movies/', movie_list_api_view),
-    path('movies/<int:id>/', movie_retrieve_api_view)
+    path('api/movies/', movie_list_api_view),
+    path('api/movies/<int:id>/', movie_retrieve_api_view)
 
 ]
 
