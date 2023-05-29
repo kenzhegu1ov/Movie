@@ -35,6 +35,7 @@ def movie_list_create_api_view(request):
 
 @api_view(["GET", "PUT"])
 def movie_retrieve_api_view(request, **kwargs):
+    print(request.user)
     movie = Movie.objects.get(id=kwargs['id'])
     if request.method == "GET":
         data = MovieRetrieveSerializer(movie, many=False).data
