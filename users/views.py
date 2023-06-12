@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 from .serializers import UserCreateSerializer
 from django.contrib.auth.models import User
+
+
 # Create your views here.
 @api_view(['POST'])
 def registration_view(request):
@@ -16,7 +18,6 @@ def registration_view(request):
             password=serializer.validated_data['password'],
         )
         return Response(data={'user_id': user.id})
-
 
 
 @api_view(['POST'])

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from djangoProject import settings
-
+from . import swagger
 from movies.views import hello_api_view, movie_list_create_api_view, movie_retrieve_api_view
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,8 +26,8 @@ urlpatterns = [
     path('hello/', hello_api_view),
     path('api/movies/', movie_list_create_api_view),
     path('api/movies/<int:id>/', movie_retrieve_api_view),
-    path('api/users/', include('users.urls'))
+    path('api/users/', include('users.urls')),
 
 ]
-
+urlpatterns += swagger.urlpatterns
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
